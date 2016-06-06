@@ -1,0 +1,17 @@
+[color]
+	ui = auto
+[user]
+	email = hephaisto@users.noreply.github.com
+	name = hephaisto
+[push]
+	default = simple
+
+[core]
+	excludefiles = ~/.sharedconfig/git/gitignore
+	autcrlf = input
+
+[help]
+	autocorrect = 15
+
+[merge]
+	tool = kdiff3
