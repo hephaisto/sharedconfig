@@ -15,3 +15,9 @@
 
 [merge]
 	tool = kdiff3
+
+[flow]
+	allowdirty = true
+[flow "feature.finish"]
+	fetch = true
+	rebase = true
