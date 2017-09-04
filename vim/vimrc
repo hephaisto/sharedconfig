@@ -3,6 +3,9 @@ set grepprg=grep\ -nH\ $*
 filetype indent on
 let g:tex_flavor='latex'
 set noexpandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 syn on
 filetype on
 let Tlist_Auto_Open=1
@@ -12,10 +15,10 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 augroup python_files
 	autocmd FileType python compiler pylint
 	autocmd!
-	autocmd FileType python setlocal noexpandtab
-	autocmd FileType python set tabstop=8
-	autocmd FileType python set softtabstop=8
-	autocmd FileType python set shiftwidth=8
+	autocmd FileType python set noexpandtab
+	autocmd FileType python set tabstop=4
+	autocmd FileType python set softtabstop=4
+	autocmd FileType python set shiftwidth=4
 augroup END
 
 let g:syntastic_python_pylint_args = ""
@@ -24,3 +27,32 @@ let g:syntastic_cpp_checkers = ["cppcheck"]
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
+
+" ,ew -> open file in same directory as current
+let mapleader=','
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" control up/down moves selected lines up and down
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+set diffopt+=vertical
+let b:fswitchlocs='rel:.'
+
+" display line numbers
+set number
+
+" yank/put/delete using system clipboard
+set clipboard=unnamed
+
+" UltiSnips commands
+"let g:UltiSnipsExpandTrigger="<C-k>"
+
+" temporarily disabled
+"let g:ycm_key_list_select_completion = ["<C-j>", "<Down>"]
+"let g:ycm_key_list_previouy_completion = ["<C-k>", "<Up>"]
+
+
+"let g:ycm_show_diagnostics_ui = 0

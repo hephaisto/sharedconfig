@@ -3,6 +3,7 @@
 [user]
 	email = hephaisto@users.noreply.github.com
 	name = hephaisto
+	useConfigOnly = true
 [push]
 	default = simple
 
@@ -15,9 +16,49 @@
 
 [merge]
 	tool = kdiff3
+	ff = only # only allow fast-forward merges
 
 [flow]
 	allowdirty = true
 [flow "feature.finish"]
 	fetch = true
 	rebase = true
+
+[branch]
+	autoSetupRebase = remote # pull from remotes uses rebase instead of merge
+
+[diff]
+	renames = true
+
+[pull]
+	rebase = preserve # pull using rebase, but keep local merges (do not flatten them)
+
+[push]
+#	default = matching
+	followTags = true
+
+[alias]
+	fnew = flow feature start
+	fend = flow feature finish
+	bnew = flow bugfix start
+	bend = flow bugfix finish
+
+# GITFLOW
+[gitflow "feature.start"]
+	fetch = true
+
+[gitflow "feature.finish"]
+	fetch = true
+	rebase = true
+
+[gitflow "hotfix.start"]
+	fetch = true
+
+[gitflow "hotfix.finish"]
+	fetch = true
+
+[gitflow "release.start"]
+	fetch = true
+
+[gitflow "release.finish"]
+	push = true
